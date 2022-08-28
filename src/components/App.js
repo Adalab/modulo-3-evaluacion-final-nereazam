@@ -14,7 +14,7 @@ function App() {
   const [filterName, setFilterName] = useState("");
   const [filterHouse, setFilterHouse] = useState("Gryffindor");
   const [filterByGender, setFilterByGender] = useState("all");
-  const [warnings, setWarnings] = useState("warnings");
+  //const [warnings, setWarnings] = useState("warnings");
 
   //Funcion del servidor
   useEffect(() => {
@@ -22,7 +22,7 @@ function App() {
       setDataCharacters(data);
     });
   }, []);
-  //funcion de filtrado por nombre
+  //funcion de filtrado del array principal
   const filteredCharacters = dataCharacters
     .filter((item) => {
       return item.name.toLowerCase().includes(filterName.toLocaleLowerCase());
@@ -31,21 +31,30 @@ function App() {
       return item.house === filterHouse;
     })
     .filter((item) => {
-      return filterByGender === "all" ? true : item.gender === filterByGender;
+      return filterByGender === "all" ? true : filterByGender === item.gender;
     });
 
+  //Funcion para avisa de campo mal introducido
+  /*const alert = () => {
+    if (filterName.length === 0) {
+      setWarnings("¡Introduce un título!");
+    } else if (filterName !== dataCharacters.name) {
+      setWarnings("¡Título no encontrado!");
+    }*/
+
   //Funcion manejadora del Input name
-  const handleInputName = (inputName) => {
+  const handleFilterName = (inputName) => {
     setFilterName(inputName);
   };
   //Funcion manejadora del Select house
   const handleSelectHouse = (inputHouse) => {
     setFilterHouse(inputHouse);
-    //filtro por genero
-    const handleFilterByGender = (value) => {
-      setFilterByGender(value);
-    };
   };
+  //filtro por genero
+  const handleFilterByGender = (inputGender) => {
+    setFilterByGender(inputGender);
+  };
+
   //obtener el id del usuario clicleado para ruta dinamica
 
   const { pathname } = useLocation();
@@ -59,21 +68,14 @@ function App() {
   const resetFilters = () => {
     setFilterName("");
     setFilterHouse("");
-  };
-  //Funcion de aviso
-  const setAdvise = () => {
-    if (filterName === "") {
-      setWarnings(<p>Intoduce un nombre!</p>);
-    } else if (filterName !== filteredCharacters) {
-      setWarnings(<p>Introduce un nombre valido! </p>);
-    }
+    setFilterByGender("all");
   };
 
   return (
     <div className="App">
       <header>
         <img className="img" src={logo} alt="img" />
-        <p>{warnings}</p>
+        <p>{alert()}</p>
       </header>{" "}
       <Routes>
         <Route
@@ -85,7 +87,7 @@ function App() {
                 filterName={filterName}
                 filterHouse={filterHouse}
                 filterByGender={filterByGender}
-                handleInputName={handleInputName}
+                handleFilterName={handleFilterName}
                 handleSelectHouse={handleSelectHouse}
                 handleFilterByGender={handleFilterByGender}
               />

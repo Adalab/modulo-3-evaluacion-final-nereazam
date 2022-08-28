@@ -12,9 +12,7 @@ function FilterByGender(props) {
         value={props.filterByGender}
         onChange={handleChange}
       >
-        <option value="all" selected>
-          Todos
-        </option>
+        <option value="all">Todos</option>
         <option value="female">Mujer</option>
         <option value="male">Hombre </option>
       </select>

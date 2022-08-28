@@ -10,7 +10,7 @@ function Filters(props) {
     <>
       <FilterByName
         filterName={props.filterName}
-        handleInputName={props.handleInput}
+        handleFilterName={props.handleFilterName}
       />
       <FilterByHouse
         filterHouse={props.filterHouse}

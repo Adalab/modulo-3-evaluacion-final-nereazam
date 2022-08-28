@@ -1,8 +1,8 @@
 function FilterByName(props) {
-  const handleEnter = (ev) => {
+  /* const handleEnter = (ev) => {
     if (ev.key === "Enter") {
     }
-  };
+  };*/
 
   const handleFilterName = (ev) => {
     props.handleFilterName(ev.target.value);
@@ -17,7 +17,7 @@ function FilterByName(props) {
         name="name"
         value={props.filterName}
         onChange={handleFilterName}
-        onKeyPress={handleEnter}
+        // onKeyPress={handleEnter}
       />
     </>
   );
