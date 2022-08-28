@@ -6,8 +6,7 @@ import getDataApi from "../services/api";
 import CharacterList from "./CharacterList";
 import CharacterDetail from "./CharacterDetail";
 import { matchPath, Route, Routes, useLocation } from "react-router-dom";
-import FilterByName from "./FilterByName";
-import FilterByHouse from "./FilterByHouse";
+import Filters from "./Filters";
 
 function App() {
   const [dataCharacters, setDataCharacters] = useState([]);
@@ -37,7 +36,10 @@ function App() {
   const characterFound = dataCharacters.find(
     (character) => character.id === parseInt(characterId)
   );
-
+  const resetFilters = () => {
+    setSearchName("");
+    setSearchHouse("");
+  };
   return (
     <div className="App">
       <header>
@@ -49,11 +51,7 @@ function App() {
             path="/"
             element={
               <>
-                <FilterByName
-                  searchName={searchName}
-                  handleImputName={handleImputName}
-                />
-                <FilterByHouse />{" "}
+                <Filters resetFilters={resetFilters} />
                 <CharacterList
                   className="list"
                   filteredCharacters={filteredCharacters}
