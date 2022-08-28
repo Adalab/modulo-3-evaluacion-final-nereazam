@@ -10,7 +10,9 @@ const getDataApi = () => {
           gender: each.gender,
           house: each.house,
           alive: each.alive,
-          image: each.image,
+          image:
+            each.image ||
+            "https://via.placeholder.com/210x295/ggggg/584555/?text=Undefined",
         };
       });
       return dataClean;

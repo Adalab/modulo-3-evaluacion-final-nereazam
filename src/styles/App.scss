@@ -5,14 +5,18 @@
 
 .main {
   display: grid;
-  grid-template-columns: 1fr, 1fr,
-    1fr, 1fr;
+  grid-template-columns: 20% 20% 20% 20%;
+  justify-content: space-around;
+
 }
 
-img {
-  width: 200px;
+.img-card {
+  width: 130px;
+  height: 170px;
+  border-radius: 2%;
 }
 
-img-card {
-  width: 100px;
+.licontainer {
+  margin: 15px;
+  border-color: aqua;
 }

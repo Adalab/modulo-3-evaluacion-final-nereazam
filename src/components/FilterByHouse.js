@@ -1,6 +1,6 @@
 function FilterByHouse(props) {
-  const handleChange = (ev) => {
-    props.handleHouseSelect(ev.target.value);
+  const handleSelectHouse = (ev) => {
+    props.handleSelectHouse(ev.currentTarget.value);
   };
 
   return (
@@ -9,8 +9,8 @@ function FilterByHouse(props) {
       <select
         name="house"
         id="house"
-        value={props.searchHouse}
-        onChange={handleChange}
+        value={props.filterHouse}
+        onChange={handleSelectHouse}
       >
         <option value="Gryffindor">Gryffindor</option>
         <option value="Hufflepuff">Hufflepuff</option>
