@@ -41,14 +41,26 @@ function App() {
   return (
     <div className="App">
       <header>
-        <img className="img" src={logo} />
+        <img className="img" src={logo} alt="img" />
       </header>{" "}
-      <FilterByName searchName={searchName} handleImputName={handleImputName} />
-      <FilterByHouse />
       <main className="main">
-        <CharacterList className="list" characters={filteredCharacters} />
         <Routes>
-          <Route path="/" />
+          <Route
+            path="/"
+            element={
+              <>
+                <FilterByName
+                  searchName={searchName}
+                  handleImputName={handleImputName}
+                />
+                <FilterByHouse />{" "}
+                <CharacterList
+                  className="list"
+                  filteredCharacters={filteredCharacters}
+                />
+              </>
+            }
+          />
 
           <Route
             path="/character/:characterId"
