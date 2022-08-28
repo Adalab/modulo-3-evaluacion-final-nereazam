@@ -1,11 +1,11 @@
 import CharacterCard from "./CharacterCard";
 function CharacterList(props) {
-  const itemElements = props.characters.map((each, index) => {
-    return <CharacterCard each={each} id={index} key={index} />;
+  const itemElements = props.dataCharacters.map((each, id) => {
+    return <CharacterCard each={each} id={id} key={id} />;
   });
   return (
     <section>
-      <ul>{itemElements}</ul>
+      <ul className="main">{itemElements}</ul>
     </section>
   );
 }

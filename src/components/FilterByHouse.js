@@ -1,6 +1,6 @@
 function FilterByHouse(props) {
   const handleChange = (ev) => {
-    //   props.handleFilterByGender(ev.target.value);
+    props.handleHouseSelect(ev.target.value);
   };
 
   return (
@@ -10,7 +10,7 @@ function FilterByHouse(props) {
         name="house"
         id="house"
         value={props.searchHouse}
-        onChange={handleChangeHouse}
+        onChange={handleChange}
       >
         <option value="Gryffindor" selected>
           Gryffindor

@@ -1,3 +1,18 @@
 .App {
   text-align: center;
+
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr, 1fr,
+    1fr, 1fr;
+}
+
+img {
+  width: 200px;
+}
+
+img-card {
+  width: 100px;
 }
