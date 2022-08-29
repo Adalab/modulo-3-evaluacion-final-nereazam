@@ -132,7 +132,10 @@ function App() {
           path="/character/:characterId"
           element={<CharacterDetail characterFound={GetRouteCard()} />}
         />
-      </Routes>
+      </Routes>{" "}
+      <footer className="footer">
+        <p>2022&copy; Nerea Zamanillo </p>
+      </footer>
     </div>
   );
 }

@@ -29,10 +29,10 @@ const CharacterDetail = (props) => {
 
   const altName = () => {
     return props.characterFound.alternate_names.length > 0 ? (
-      <h3>
+      <p>
         Nombre alternativo:
         {props.characterFound.alternate_names.map((name) => name + "/")}
-      </h3>
+      </p>
     ) : (
       []
     );
@@ -64,7 +64,7 @@ const CharacterDetail = (props) => {
           <p>Casa:{props.characterFound.house}</p>
           {altName()}
           <Link className="card__link" to="/">
-            Volver <i class="fa-solid fa-dragon"></i>{" "}
+            Volver <i class="fa-solid fa-bow-arrow"></i>{" "}
           </Link>
         </div>
       </section>
