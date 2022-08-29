@@ -9,6 +9,7 @@ import ls from "../services/localStorage";
 import CharacterList from "./CharacterList";
 import CharacterDetail from "./CharacterDetail";
 import Filters from "./Filters";
+import Loading from "./Loading";
 
 function App() {
   const [dataCharacters, setDataCharacters] = useState([]);
@@ -17,12 +18,17 @@ function App() {
     ls.get("selectHouse", "Gryffindor")
   );
   const [filterByGender, setFilterByGender] = useState("all");
+  const [loading, setLoading] = useState(false);
 
   //Funcion del servidor
   useEffect(() => {
-    getDataApi().then((data) => {
-      setDataCharacters(data);
-    });
+    setLoading(true);
+    getDataApi()
+      .then((data) => {
+        setLoading(false);
+        setDataCharacters(data);
+      })
+      .catch((error) => console.log(`Ha sucedido un error: ${error}`));
   }, []);
   // LOCAL-STORAGE
   useEffect(() => {
@@ -32,6 +38,7 @@ function App() {
 
   //funcion de filtrado del array principal
   const filteredCharacters = dataCharacters
+
     .filter((item) => {
       return item.name.toLowerCase().includes(filterName.toLocaleLowerCase());
     })
@@ -88,22 +95,27 @@ function App() {
       <header>
         <img className="img" src={logo} alt="img" />
       </header>{" "}
+      <Loading loading={loading} />
       <Routes>
         <Route
           path="/"
           element={
             <>
-              <Filters
-                resetFilters={resetFilters}
-                filterName={filterName}
-                filterHouse={filterHouse}
-                filterByGender={filterByGender}
-                handleFilterName={handleFilterName}
-                handleSelectHouse={handleSelectHouse}
-                handleFilterByGender={handleFilterByGender}
-              />
               <main>
-                <p>{advice()}</p>
+                <form>
+                  <fieldset>
+                    <Filters
+                      resetFilters={resetFilters}
+                      filterName={filterName}
+                      filterHouse={filterHouse}
+                      filterByGender={filterByGender}
+                      handleFilterName={handleFilterName}
+                      handleSelectHouse={handleSelectHouse}
+                      handleFilterByGender={handleFilterByGender}
+                    />
+                    <p>{advice()}</p>
+                  </fieldset>
+                </form>
                 <CharacterList
                   className="list"
                   filteredCharacters={filteredCharacters}

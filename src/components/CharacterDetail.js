@@ -5,16 +5,33 @@ const CharacterDetail = (props) => {
     return <h1>El elemento buscado no existe!</h1>;
   };
   const GetStatusIcon = () => {
-    props.characterFound.alive === true ? (
-      <i className="fa-solid fa-heart-pulse"></i>
-    ) : (
-      <i class="fa-solid fa-skull"></i>
-    );
+    if (props.characterFound.alive === true) {
+      return <i className="fa-solid fa-heart-pulse"></i>;
+    } else {
+      return <i class="fa-solid fa-skull"></i>;
+    }
+  };
+  const GetStatus = () => {
+    if (props.characterFound.alive === true) {
+      return "Alive";
+    } else {
+      return "Dead";
+    }
+  };
+  const GetGender = () => {
+    if (props.characterFound.gender === "female") {
+      return <i class="fa-solid fa-venus"></i>;
+    } else {
+      return <i class="fa-solid fa-mars"></i>;
+    }
   };
 
   const altName = () => {
     return props.characterFound.alternate_names.length > 0 ? (
-      <h3>Nombre alternativo:{props.characterFound.alternate_names}</h3>
+      <h3>
+        Nombre alternativo:
+        {props.characterFound.alternate_names.map((name) => name + "/")}
+      </h3>
     ) : (
       []
     );
@@ -30,10 +47,15 @@ const CharacterDetail = (props) => {
         ></img>
         <h3>{props.characterFound.name}</h3>
         <p>
-          Estatus:{props.characterFound.alive} {GetStatusIcon()}
+          Estatus:{GetStatus()} {""}
+          {GetStatusIcon()}
         </p>
         <p>Especie:{props.characterFound.species}</p>
-        <p>Género:{props.characterFound.gender}</p>
+        <p>
+          Género:{props.characterFound.gender}
+          {""}
+          {GetGender()}
+        </p>
         <p>Casa:{props.characterFound.house}</p>
 
         {altName()}

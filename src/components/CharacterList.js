@@ -1,6 +1,6 @@
 import CharacterCard from "./CharacterCard";
 function CharacterList(props) {
-  const itemElements = props.filteredCharacters.map((each, id) => {
+  const itemElements = props.filteredCharacters.map((each) => {
     return (
       <CharacterCard
         characterFound={props.characterFound}
