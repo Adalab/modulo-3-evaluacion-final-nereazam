@@ -104,7 +104,7 @@ function App() {
           element={
             <>
               <main>
-                <form>
+                <form className="form">
                   <fieldset>
                     <p className="ad">{advice()}</p>
                     <Filters

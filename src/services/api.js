@@ -13,7 +13,7 @@ const getDataApi = () => {
           alive: each.alive,
           image:
             each.image ||
-            "http://via.placeholder.com/210x295/ggggg/584555/?text=Undefined",
+            "https://ae01.alicdn.com/kf/HTB1SomBJFXXXXauXFXXq6xXFXXXx/Harry-Potter-felicidad-puede-ser-encontrado-incluso-in-the-darkst-fo-veces-Albus-Dumbledore-pared.jpg",
         };
       });
       return dataClean;

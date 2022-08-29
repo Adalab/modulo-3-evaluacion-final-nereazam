@@ -64,7 +64,7 @@ const CharacterDetail = (props) => {
           <p>Casa:{props.characterFound.house}</p>
           {altName()}
           <Link className="card__link" to="/">
-            Volver{" "}
+            Volver <i class="fa-solid fa-dragon"></i>{" "}
           </Link>
         </div>
       </section>
