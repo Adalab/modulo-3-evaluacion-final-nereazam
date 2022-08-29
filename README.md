@@ -15,14 +15,20 @@ Also  by clicking on the card, we obtein more details of the selected character.
 
 
 ## Resources
-API
- <a href="https://hp-api.herokuapp.com"> Take a look at the API ></a>
+
+###API
+
+ <a href="https://hp-api.herokuapp.com"> Take a look at the API </a>
 
 ## Tecnologies
--React
--Javascript
--Sass
--HTML5
+
+- **React**
+  
+- **Javascript**
+  
+- **Sass**
+  
+- **HTML5**
 
 
 ## Contact
