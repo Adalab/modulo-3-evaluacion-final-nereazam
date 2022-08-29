@@ -1,6 +1,8 @@
 import FilterByName from "./FilterByName";
 import FilterByHouse from "./FilterByHouse";
 import FilterByGender from "./FilterByGender";
+import "../styles/Components/Filters.scss";
+
 function Filters(props) {
   const hadleReset = (ev) => {
     ev.preventDefault();
@@ -26,7 +28,9 @@ function Filters(props) {
           handleFilterByGender={props.handleFilterByGender}
         />
       </fieldset>
-      <button onClick={hadleReset}>Reset </button>
+      <button className="btn" onClick={hadleReset}>
+        Reset{" "}
+      </button>
     </>
   );
 }

@@ -1,17 +1,17 @@
-import "../styles/App.scss";
+import "../styles/Components/CharacterCard.scss";
 import { Link } from "react-router-dom";
 const CharacterCard = (props) => {
   return (
-    <li className="licontainer">
+    <li className="container">
       <Link to={`/character/${props.each.id}`}>
         <img
-          className="img-card"
+          className="container__img"
           src={props.each.image}
           alt={`Foto de ${props.each.name}`}
           title={`Foto de ${props.each.name}`}
         ></img>
-        <h3>{props.each.name}</h3>
-        <p>{props.each.species}</p>
+        <h2 className="container__name">{props.each.name}</h2>
+        <p className="container__species">{props.each.species}</p>
       </Link>
     </li>
   );

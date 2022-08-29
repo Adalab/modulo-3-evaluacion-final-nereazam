@@ -1,3 +1,4 @@
+import "../styles/Components/CharacterList.scss";
 import CharacterCard from "./CharacterCard";
 function CharacterList(props) {
   const itemElements = props.filteredCharacters.map((each) => {
@@ -11,9 +12,9 @@ function CharacterList(props) {
   });
   return (
     <section>
-      <div>
-        <ul className="main">{itemElements}</ul>
-      </div>
+      <divl className="main">
+        <ul className="main__ul">{itemElements}</ul>
+      </divl>
     </section>
   );
 }

@@ -1,7 +1,9 @@
 //import logo from "../images/logo.svg";
-import "../styles/App.scss";
-import "../styles/_reset.scss";
+import "../styles/Components/App.scss";
+import "../styles/core/_reset.scss";
+import "../styles/core/_variables.scss";
 import logo from "../images/3107397.jpeg";
+
 import { useState, useEffect } from "react";
 import { matchPath, Route, Routes, useLocation } from "react-router-dom";
 import getDataApi from "../services/api";
@@ -104,6 +106,7 @@ function App() {
               <main>
                 <form>
                   <fieldset>
+                    <p className="ad">{advice()}</p>
                     <Filters
                       resetFilters={resetFilters}
                       filterName={filterName}
@@ -113,7 +116,6 @@ function App() {
                       handleSelectHouse={handleSelectHouse}
                       handleFilterByGender={handleFilterByGender}
                     />
-                    <p>{advice()}</p>
                   </fieldset>
                 </form>
                 <CharacterList

@@ -1,8 +1,9 @@
+import "../styles/Components/CharacterDetail.scss";
 import { Link } from "react-router-dom";
 
 const CharacterDetail = (props) => {
   const NotFoundElem = () => {
-    return <h1>El elemento buscado no existe!</h1>;
+    return <h1 className="NotFound">El elemento buscado no existe!</h1>;
   };
   const GetStatusIcon = () => {
     if (props.characterFound.alive === true) {
@@ -39,26 +40,33 @@ const CharacterDetail = (props) => {
   if (props.characterFound) {
     return (
       <section className="card">
-        <Link to="/">Volver </Link>
-        <img
-          src={props.characterFound.image}
-          alt={`Foto de ${props.characterFound.name}`}
-          title={`Foto de ${props.characterFound.name}`}
-        ></img>
-        <h3>{props.characterFound.name}</h3>
-        <p>
-          Estatus:{GetStatus()} {""}
-          {GetStatusIcon()}
-        </p>
-        <p>Especie:{props.characterFound.species}</p>
-        <p>
-          Género:{props.characterFound.gender}
-          {""}
-          {GetGender()}
-        </p>
-        <p>Casa:{props.characterFound.house}</p>
-
-        {altName()}
+        <div>
+          <img
+            className="card__img"
+            src={props.characterFound.image}
+            alt={`Foto de ${props.characterFound.name}`}
+            title={`Foto de ${props.characterFound.name}`}
+          ></img>
+        </div>
+        <div className="list">
+          <h3 className="card__title">{props.characterFound.name}</h3>
+          <p>
+            Estatus:{GetStatus()}
+            {""}
+            {GetStatusIcon()}
+          </p>
+          <p>Especie:{props.characterFound.species}</p>
+          <p>
+            Género:{props.characterFound.gender}
+            {""}
+            {GetGender()}
+          </p>
+          <p>Casa:{props.characterFound.house}</p>
+          {altName()}
+          <Link className="card__link" to="/">
+            Volver{" "}
+          </Link>
+        </div>
       </section>
     );
   } else {

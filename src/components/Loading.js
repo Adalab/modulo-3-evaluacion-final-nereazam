@@ -1,4 +1,4 @@
-import "../styles/Loading.scss";
+import "../styles/Components/Loading.scss";
 const Loading = (props) => {
   return props.loading ? (
     <div className="spinner-container">

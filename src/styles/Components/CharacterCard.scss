@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    &__img {
+        width: 140px;
+        height: 170px;
+        border-radius: 2%;
+        border: 20px solid#8b6c7e;
+        margin: 15px;
+        padding: 5px;
+    }
+
+    &__name {
+        text-decoration: none;
+        color: #512440;
+        font-size: 30px;
+        font-weight: bold;
+        background-color: white;
+        margin: 10px;
+
+
+    }
+
+    &__species {
+        text-decoration: none;
+        color: #7a5b6d;
+        padding: 10px;
+        font-weight: bold;
+        background-color: white;
+    }
+}

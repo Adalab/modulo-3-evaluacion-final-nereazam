@@ -1,3 +1,4 @@
+import "../styles/Components/FilterByHouse.scss";
 function FilterByHouse(props) {
   const handleSelectHouse = (ev) => {
     props.handleSelectHouse(ev.currentTarget.value);
@@ -5,8 +6,11 @@ function FilterByHouse(props) {
 
   return (
     <>
-      <label htmlFor="house">Seleciona la casa</label>
+      <label className="form__label" htmlFor="house">
+        Seleciona la casa
+      </label>
       <select
+        className="form__select"
         name="house"
         id="house"
         value={props.filterHouse}
