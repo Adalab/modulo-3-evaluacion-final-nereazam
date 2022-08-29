@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import "../styles/Components/Loading.scss";
 const Loading = (props) => {
   return props.loading ? (
@@ -5,6 +6,12 @@ const Loading = (props) => {
       <div className="loading-spinner"></div>
     </div>
   ) : null;
+};
+Loading.defaultProps = {
+  loading: false,
+};
+Loading.propTypes = {
+  loading: PropTypes.bool,
 };
 
 export default Loading;

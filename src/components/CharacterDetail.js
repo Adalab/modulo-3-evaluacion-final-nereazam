@@ -1,6 +1,6 @@
 import "../styles/Components/CharacterDetail.scss";
 import { Link } from "react-router-dom";
-
+import PropTypes from "prop-types";
 const CharacterDetail = (props) => {
   const NotFoundElem = () => {
     return <h1 className="NotFound">El elemento buscado no existe!</h1>;
@@ -72,5 +72,23 @@ const CharacterDetail = (props) => {
   } else {
     return NotFoundElem();
   }
+};
+CharacterDetail.defaultProps = {
+  gender: "all",
+  alive: "",
+  names: "",
+  image: "",
+  species: "",
+  house: "Gryffindor",
+  alternate_names: [],
+};
+CharacterDetail.propTypes = {
+  gender: PropTypes.string,
+  alive: PropTypes.bool,
+  names: PropTypes.string,
+  image: PropTypes.string,
+  species: PropTypes.string,
+  house: PropTypes.string,
+  alternate_names: PropTypes.arrayOf(PropTypes.string),
 };
 export default CharacterDetail;

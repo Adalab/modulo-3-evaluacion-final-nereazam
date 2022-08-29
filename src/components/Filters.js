@@ -24,7 +24,7 @@ function Filters(props) {
       </fieldset>
       <fieldset>
         <FilterByGender
-          filterByGender={props.filterByGender}
+          filterByGender={props.filterHouse}
           handleFilterByGender={props.handleFilterByGender}
         />
       </fieldset>
@@ -34,4 +34,18 @@ function Filters(props) {
     </>
   );
 }
+Filters.defaultProps = {
+  filterName: "",
+  filterHouse: "Gryffindor",
+  filterByGender: "all",
+};
+Filters.propTypes = {
+  resetFilters: PropTypes.function.isRequired,
+  filterName: propTypes.string,
+  filterHouse: PropTypes.string,
+  filterByGender: PropTypes.string,
+  handleFilterByGender: PropTypes.func.isRequired,
+  handleSelectHouse: PropTypes.function.isRequired,
+  handleFilterName: PropTypes.function.isRequired,
+};
 export default Filters;

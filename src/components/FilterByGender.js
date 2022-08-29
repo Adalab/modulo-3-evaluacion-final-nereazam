@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import "../styles/Components/FilterByGender.scss";
 
 function FilterByGender(props) {
@@ -24,4 +25,11 @@ function FilterByGender(props) {
     </>
   );
 }
+FilterByGender.defaultProps = {
+  filterByGender: "all",
+};
+FilterByGender.propTypes = {
+  filterByGender: PropTypes.string,
+  handleFilterByGender: PropTypes.func.isRequired,
+};
 export default FilterByGender;

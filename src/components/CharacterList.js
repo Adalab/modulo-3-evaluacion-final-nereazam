@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import "../styles/Components/CharacterList.scss";
 import CharacterCard from "./CharacterCard";
 function CharacterList(props) {
@@ -18,4 +19,9 @@ function CharacterList(props) {
     </section>
   );
 }
+CharacterList.defaultProps = {};
+CharacterList.propTypes = {
+  filteredCharacters: PropTypes.arrayOf(PropTypes.object).isRequired,
+  characterFound: PropTypes.function.isRequired,
+};
 export default CharacterList;

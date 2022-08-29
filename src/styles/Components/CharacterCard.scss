@@ -3,6 +3,9 @@
     justify-content: center;
     align-items: center;
     background-color: white;
+    text-decoration: none;
+
+
 
 
     &__img {
@@ -12,6 +15,10 @@
         border: 20px solid#8b6c7e;
         margin: 15px;
         padding: 5px;
+
+        :hover {
+            border: 30px solid #ec2097;
+        }
     }
 
     &__name {

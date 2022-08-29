@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import "../styles/Components/FilterByName.scss";
 function FilterByName(props) {
   const handleEnter = (ev) => {
@@ -26,4 +27,11 @@ function FilterByName(props) {
     </>
   );
 }
+FilterByName.defaultProps = {
+  filterName: "",
+};
+FilterByName.propTypes = {
+  filterName: PropTypes.string,
+  handleFilterName: PropTypes.func.isRequired,
+};
 export default FilterByName;
