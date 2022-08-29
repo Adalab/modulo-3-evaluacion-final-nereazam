@@ -1,4 +1,3 @@
-
 const get = (key, defaultValue) => {
   const localStorageData = localStorage.getItem(key);
   if (localStorageData === null) {
@@ -13,12 +12,9 @@ const set = (key, value) => {
   localStorage.setItem(key, localStorageData);
 };
 
-
 const objectToExport = {
   get: get,
   set: set,
-  remove: remove,
-  clear: clear,
 };
 
 export default objectToExport;

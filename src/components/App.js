@@ -8,13 +8,13 @@ import CharacterList from "./CharacterList";
 import CharacterDetail from "./CharacterDetail";
 import { matchPath, Route, Routes, useLocation } from "react-router-dom";
 import Filters from "./Filters";
-
+import ls from "../services/localStorage";
 function App() {
   const [dataCharacters, setDataCharacters] = useState([]);
-  const [filterName, setFilterName] = useState("");
+  const [filterName, setFilterName] = useState(ls.get("inputName", ""));
   const [filterHouse, setFilterHouse] = useState("Gryffindor");
   const [filterByGender, setFilterByGender] = useState("all");
-  //const [warnings, setWarnings] = useState("warnings");
+  // const [warnings, setWarnings] = useState("");
 
   //Funcion del servidor
   useEffect(() => {
@@ -22,6 +22,12 @@ function App() {
       setDataCharacters(data);
     });
   }, []);
+  // LOCAL-STORAGE
+  useEffect(() => {
+    ls.set("inputName", filterName);
+    // ls.set('selectHouse', filterHouse);
+  }, [filterName]);
+
   //funcion de filtrado del array principal
   const filteredCharacters = dataCharacters
     .filter((item) => {
@@ -35,12 +41,13 @@ function App() {
     });
 
   //Funcion para avisa de campo mal introducido
-  /*const alert = () => {
+  /* const advice = () => {
     if (filterName.length === 0) {
       setWarnings("¡Introduce un título!");
     } else if (filterName !== dataCharacters.name) {
       setWarnings("¡Título no encontrado!");
-    }*/
+    }
+  };*/
 
   //Funcion manejadora del Input name
   const handleFilterName = (inputName) => {
@@ -55,14 +62,23 @@ function App() {
     setFilterByGender(inputGender);
   };
 
+  const NotFoundElem = () => {
+    return <h1>El elemento buscado no existe!</h1>;
+  };
   //obtener el id del usuario clicleado para ruta dinamica
-
-  const { pathname } = useLocation();
-  const dataPath = matchPath("/character/:characterId", pathname);
-  const characterId = dataPath !== null ? dataPath.params.characterId : null;
-  const characterFound = dataCharacters.find(
-    (character) => character.id === parseInt(characterId)
-  );
+  const GetRouteCard = () => {
+    const { pathname } = useLocation();
+    const dataPath = matchPath("/character/:characterId", pathname);
+    const characterId = dataPath !== null ? dataPath.params.characterId : null;
+    const characterFound = dataCharacters.find(
+      (character) => character.id === parseInt(characterId)
+    );
+    if (characterFound) {
+      return characterFound;
+    } else {
+      return NotFoundElem();
+    }
+  };
 
   //Funcion para Resetear Inputs
   const resetFilters = () => {
@@ -75,7 +91,6 @@ function App() {
     <div className="App">
       <header>
         <img className="img" src={logo} alt="img" />
-        <p>{alert()}</p>
       </header>{" "}
       <Routes>
         <Route
@@ -92,9 +107,11 @@ function App() {
                 handleFilterByGender={handleFilterByGender}
               />
               <main>
+                <p></p>
                 <CharacterList
                   className="list"
                   filteredCharacters={filteredCharacters}
+                  characterFound={GetRouteCard()}
                 />
               </main>
             </>
@@ -103,7 +120,7 @@ function App() {
 
         <Route
           path="/character/:characterId"
-          element={<CharacterDetail characterFound={characterFound} />}
+          element={<CharacterDetail characterFound={GetRouteCard()} />}
         />
       </Routes>
     </div>

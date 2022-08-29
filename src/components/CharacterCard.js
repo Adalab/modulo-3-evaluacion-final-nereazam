@@ -1,15 +1,9 @@
 import "../styles/App.scss";
 import { Link } from "react-router-dom";
 const CharacterCard = (props) => {
-  /*const getPlaceholderText = () => {
-    return( src= "https://via.placeholder.com/210x295/ggggg/584555/?text=Undefined")
-  }
-  const renderPlaceholderOrImage =() => {
-src=== "" ? {getPlaceholderText()}: {props.each.image}
-  };*/
   return (
     <li className="licontainer">
-      <Link to={`/user/${props.id}`}>
+      <Link to={`/character/${props.each.id}`}>
         <img
           className="img-card"
           src={props.each.image}
@@ -18,8 +12,6 @@ src=== "" ? {getPlaceholderText()}: {props.each.image}
         ></img>
         <h3>{props.each.name}</h3>
         <p>{props.each.species}</p>
-
-        <p>Ver Detalle</p>
       </Link>
     </li>
   );

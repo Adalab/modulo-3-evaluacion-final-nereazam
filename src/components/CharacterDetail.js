@@ -2,13 +2,15 @@ import { Link } from "react-router-dom";
 
 const CharacterDetail = (props) => {
   const altName = () => {
-    return props.characterFound.alternate_names !== null ? (
-      <h3>"Nombre alternativo:"{props.characterFound.alternate_name}</h3>
-    ) : null;
+    return props.characterFound.alternate_names !== [] ? (
+      <h3>Nombre alternativo:{props.characterFound.alternate_names}</h3>
+    ) : (
+      ""
+    );
   };
   return (
     <section className="card">
-      <Link to="/">Volver</Link>
+      <Link to="/">Volver </Link>
       <img
         src={props.characterFound.image}
         alt={`Foto de ${props.characterFound.name}`}
