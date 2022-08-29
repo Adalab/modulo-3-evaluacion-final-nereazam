@@ -1,6 +1,9 @@
 ![Harry Potter character finder application](http://www.mipetitmadrid.com/web_mipetitmadrid/docs/azul_1.jpg)
 
-# Harry Potter character finder application <span> | </span>  <a href="http://beta.adalab.es/modulo-3-evaluacion-final-nereazam/">  Try it! </a><span> | </span>
+# Harry Potter character finder application 
+
+<span> | </span>  <a href="http://beta.adalab.es/modulo-3-evaluacion-final-nereazam/"> 
+ Try it! </a><span> | </span>
     
    
 
@@ -13,16 +16,16 @@ Also  by clicking on the card, we obtein more details of the selected character.
 
 ## Resources
 API
- <a href="https://hp-api.herokuapp.com" target="_blank"Take a look at the API ></a>
+ <a href="https://hp-api.herokuapp.com"> Take a look at the API ></a>
 
 ## Tecnologies
-·*React
-·*Javascript
-·*Sass
-·*HTML5
+-React
+-Javascript
+-Sass
+-HTML5
 
 
 ## Contact
 
-- GitHub: [Visita mi web](https://github.com/nereazam) )
-- Email: [Nerea Zamanillo](mailto:nerea_zama@hotmail.com)
+- GitHub: [@nereazam](https://github.com/nereazam) 
+
