@@ -3,18 +3,20 @@ import "../styles/App.scss";
 import "../styles/_reset.scss";
 import logo from "../images/3107397.jpeg";
 import { useState, useEffect } from "react";
+import { matchPath, Route, Routes, useLocation } from "react-router-dom";
 import getDataApi from "../services/api";
+import ls from "../services/localStorage";
 import CharacterList from "./CharacterList";
 import CharacterDetail from "./CharacterDetail";
-import { matchPath, Route, Routes, useLocation } from "react-router-dom";
 import Filters from "./Filters";
-import ls from "../services/localStorage";
+
 function App() {
   const [dataCharacters, setDataCharacters] = useState([]);
   const [filterName, setFilterName] = useState(ls.get("inputName", ""));
-  const [filterHouse, setFilterHouse] = useState("Gryffindor");
+  const [filterHouse, setFilterHouse] = useState(
+    ls.get("selectHouse", "Gryffindor")
+  );
   const [filterByGender, setFilterByGender] = useState("all");
-  // const [warnings, setWarnings] = useState("");
 
   //Funcion del servidor
   useEffect(() => {
@@ -25,8 +27,8 @@ function App() {
   // LOCAL-STORAGE
   useEffect(() => {
     ls.set("inputName", filterName);
-    // ls.set('selectHouse', filterHouse);
-  }, [filterName]);
+    ls.set("selectHouse", filterHouse);
+  }, [filterName, filterHouse]);
 
   //funcion de filtrado del array principal
   const filteredCharacters = dataCharacters
@@ -41,13 +43,13 @@ function App() {
     });
 
   //Funcion para avisa de campo mal introducido
-  /* const advice = () => {
+  const advice = () => {
     if (filterName.length === 0) {
-      setWarnings("¡Introduce un título!");
-    } else if (filterName !== dataCharacters.name) {
-      setWarnings("¡Título no encontrado!");
+      return "¡Introduce un título!";
+    } else if (filteredCharacters.length === 0) {
+      return "¡Título no encontrado!";
     }
-  };*/
+  };
 
   //Funcion manejadora del Input name
   const handleFilterName = (inputName) => {
@@ -62,9 +64,6 @@ function App() {
     setFilterByGender(inputGender);
   };
 
-  const NotFoundElem = () => {
-    return <h1>El elemento buscado no existe!</h1>;
-  };
   //obtener el id del usuario clicleado para ruta dinamica
   const GetRouteCard = () => {
     const { pathname } = useLocation();
@@ -73,17 +72,14 @@ function App() {
     const characterFound = dataCharacters.find(
       (character) => character.id === parseInt(characterId)
     );
-    if (characterFound) {
-      return characterFound;
-    } else {
-      return NotFoundElem();
-    }
+
+    return characterFound;
   };
 
   //Funcion para Resetear Inputs
   const resetFilters = () => {
     setFilterName("");
-    setFilterHouse("");
+    setFilterHouse("Gryffindor");
     setFilterByGender("all");
   };
 
@@ -107,7 +103,7 @@ function App() {
                 handleFilterByGender={handleFilterByGender}
               />
               <main>
-                <p></p>
+                <p>{advice()}</p>
                 <CharacterList
                   className="list"
                   filteredCharacters={filteredCharacters}

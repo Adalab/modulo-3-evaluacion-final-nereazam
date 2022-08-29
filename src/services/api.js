@@ -13,7 +13,7 @@ const getDataApi = () => {
           alive: each.alive,
           image:
             each.image ||
-            "https://via.placeholder.com/210x295/ggggg/584555/?text=Undefined",
+            "//via.placeholder.com/210x295/ggggg/584555/?text=Undefined",
         };
       });
       return dataClean;
