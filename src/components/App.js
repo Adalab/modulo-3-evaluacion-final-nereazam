@@ -105,43 +105,42 @@ function App() {
     <div className="App">
       <header>
         <img className="img" src={logo} alt="img" />
+        <Loading loading={loading} />
       </header>{" "}
-      <Loading loading={loading} />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <main>
+      <main>
+        {" "}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
                 <form className="form">
-                  <fieldset>
-                    <p className="ad">{advice()}</p>
-                    <Filters
-                      resetFilters={resetFilters}
-                      filterName={filterName}
-                      filterHouse={filterHouse}
-                      filterByGender={filterByGender}
-                      handleFilterName={handleFilterName}
-                      handleSelectHouse={handleSelectHouse}
-                      handleFilterByGender={handleFilterByGender}
-                    />
-                  </fieldset>
+                  <p className="ad">{advice()}</p>
+                  <Filters
+                    resetFilters={resetFilters}
+                    filterName={filterName}
+                    filterHouse={filterHouse}
+                    filterByGender={filterByGender}
+                    handleFilterName={handleFilterName}
+                    handleSelectHouse={handleSelectHouse}
+                    handleFilterByGender={handleFilterByGender}
+                  />
                 </form>
                 <CharacterList
                   className="list"
                   filteredCharacters={filteredCharacters}
                   characterFound={GetRouteCard()}
                 />
-              </main>
-            </>
-          }
-        />
+              </>
+            }
+          />
 
-        <Route
-          path="/character/:characterId"
-          element={<CharacterDetail characterFound={GetRouteCard()} />}
-        />
-      </Routes>{" "}
+          <Route
+            path="/character/:characterId"
+            element={<CharacterDetail characterFound={GetRouteCard()} />}
+          />
+        </Routes>{" "}
+      </main>
       <footer className="footer">
         <p>2022&copy; Nerea Zamanillo </p>
       </footer>

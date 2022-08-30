@@ -25,6 +25,6 @@ CharacterList.defaultProps = {
 };
 CharacterList.propTypes = {
   filteredCharacters: PropTypes.arrayOf(PropTypes.object).isRequired,
-  characterFound: PropTypes.func,
+  characterFound: PropTypes.string,
 };
 export default CharacterList;

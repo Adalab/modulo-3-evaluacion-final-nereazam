@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 const CharacterDetail = (props) => {
   const NotFoundElem = () => {
-    return <h1 className="NotFound">El elemento buscado no existe!</h1>;
+    return (
+      <h1 className="NotFound">
+        ¡El elemento buscado no existe! ¡Prueba con otro!
+      </h1>
+    );
   };
   const GetStatusIcon = () => {
     if (props.characterFound.alive === true) {
