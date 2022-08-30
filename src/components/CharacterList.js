@@ -21,10 +21,10 @@ function CharacterList(props) {
 }
 CharacterList.defaultProps = {
   filteredCharacters: [],
-  characterFound: "",
+  characterFound: {},
 };
 CharacterList.propTypes = {
   filteredCharacters: PropTypes.arrayOf(PropTypes.object).isRequired,
-  characterFound: PropTypes.string,
+  characterFound: PropTypes.object,
 };
 export default CharacterList;

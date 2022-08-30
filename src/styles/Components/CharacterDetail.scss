@@ -5,25 +5,19 @@
 }
 
 .card {
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    background-image: url('../../images/velvet.jpg');
+    background-image: url("../../images/velvet.jpg");
     text-align: center;
     font-size: 25px;
     margin: 10px;
     font-weight: bolder;
 
-
-
-
     &__img {
         width: 200px;
         margin: 20px;
-
-
     }
 
     &__link {
@@ -31,10 +25,7 @@
         margin: 15px;
         text-decoration: none;
         color: #e9dada;
-
-
     }
-
 
     &__title {
         color: #e9dada;
@@ -42,8 +33,6 @@
         margin: 15px;
     }
 }
-
-
 
 .list {
     display: flex;

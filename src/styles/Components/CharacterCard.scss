@@ -6,9 +6,8 @@
     text-decoration: none;
 
     :hover {
-        transform: scale(1.05)
+        transform: scale(1.05);
     }
-
 
     &__img {
         width: 140px;
@@ -19,8 +18,6 @@
         background-color: #800000;
         padding: 5px;
         text-align: start;
-
-
     }
 
     &__name {
@@ -30,8 +27,6 @@
         font-weight: bold;
         background-color: white;
         margin: 10px;
-
-
     }
 
     &__species {

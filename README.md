@@ -8,7 +8,7 @@
    
 
 Web application that shows a list of Harry Potter characters.
-we can use some filters to show the characters by diferent ways.
+We can use some filters to show the characters by diferent features.
 Also  by clicking on the card, we obtein more details of the selected character.
 
 
