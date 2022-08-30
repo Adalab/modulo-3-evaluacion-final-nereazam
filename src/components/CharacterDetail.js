@@ -7,23 +7,23 @@ const CharacterDetail = (props) => {
   };
   const GetStatusIcon = () => {
     if (props.characterFound.alive === true) {
-      return <i className="fa-solid fa-heart-pulse"></i>;
+      return <i className="fa-solid fa-heart-pulse icon"></i>;
     } else {
-      return <i class="fa-solid fa-skull"></i>;
+      return <i className="fa-solid fa-skull icon"></i>;
     }
   };
   const GetStatus = () => {
     if (props.characterFound.alive === true) {
-      return "Alive";
+      return " Alive ";
     } else {
-      return "Dead";
+      return " Dead ";
     }
   };
   const GetGender = () => {
     if (props.characterFound.gender === "female") {
-      return <i class="fa-solid fa-venus"></i>;
+      return <i className="fa-solid fa-venus icon"></i>;
     } else {
-      return <i class="fa-solid fa-mars"></i>;
+      return <i className="fa-solid fa-mars icon"></i>;
     }
   };
 
@@ -64,7 +64,7 @@ const CharacterDetail = (props) => {
           <p>Casa:{props.characterFound.house}</p>
           {altName()}
           <Link className="card__link" to="/">
-            Volver <i class="fa-solid fa-bow-arrow"></i>{" "}
+            Volver <i class="fa-solid fa-broom"></i>{" "}
           </Link>
         </div>
       </section>
@@ -75,7 +75,7 @@ const CharacterDetail = (props) => {
 };
 CharacterDetail.defaultProps = {
   gender: "all",
-  alive: "",
+  alive: true,
   names: "",
   image: "",
   species: "",

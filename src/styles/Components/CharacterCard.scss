@@ -1,11 +1,13 @@
 .container {
     display: flex;
     justify-content: center;
-    align-items: center;
+
     background-color: white;
     text-decoration: none;
 
-
+    :hover {
+        transform: scale(1.05)
+    }
 
 
     &__img {
@@ -14,11 +16,11 @@
         border-radius: 2%;
         border: 20px solid#8b6c7e;
         margin: 15px;
+        background-color: #800000;
         padding: 5px;
+        text-align: start;
 
-        :hover {
-            border: 30px solid #ec2097;
-        }
+
     }
 
     &__name {
@@ -38,5 +40,9 @@
         padding: 10px;
         font-weight: bold;
         background-color: white;
+    }
+
+    &__link {
+        text-decoration: none;
     }
 }

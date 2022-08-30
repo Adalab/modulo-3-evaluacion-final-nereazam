@@ -13,15 +13,18 @@ function CharacterList(props) {
   });
   return (
     <section>
-      <divl className="main">
+      <div className="main">
         <ul className="main__ul">{itemElements}</ul>
-      </divl>
+      </div>
     </section>
   );
 }
-CharacterList.defaultProps = {};
+CharacterList.defaultProps = {
+  filteredCharacters: [],
+  characterFound: "",
+};
 CharacterList.propTypes = {
   filteredCharacters: PropTypes.arrayOf(PropTypes.object).isRequired,
-  characterFound: PropTypes.function.isRequired,
+  characterFound: PropTypes.func,
 };
 export default CharacterList;

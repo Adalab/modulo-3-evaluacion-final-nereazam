@@ -8,11 +8,13 @@
 
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: row;
-    text-align: center;
     background-image: url('../../images/velvet.jpg');
-    height: 350px;
-
+    text-align: center;
+    font-size: 25px;
+    margin: 10px;
+    font-weight: bolder;
 
 
 
@@ -41,12 +43,7 @@
     }
 }
 
-p {
-    text-align: center;
-    font-size: 25px;
-    margin: 10px;
-    font-weight: bolder;
-}
+
 
 .list {
     display: flex;
@@ -55,4 +52,10 @@ p {
     justify-content: space-evenly;
     background-color: #800000;
     height: 350px;
+    margin: 20px;
+}
+
+.icon {
+    color: #e9dada;
+    text-align: end;
 }

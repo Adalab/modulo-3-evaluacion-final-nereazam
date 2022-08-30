@@ -8,7 +8,10 @@
     height: 30px;
     font-size: 15px;
 
-    :hover {
-        color: black
-    }
+
+}
+
+.btn:hover {
+    transform: scale(1.09);
+    background-color: black;
 }

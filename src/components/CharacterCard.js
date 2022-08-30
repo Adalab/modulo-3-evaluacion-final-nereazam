@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const CharacterCard = (props) => {
   return (
     <li className="container">
-      <Link to={`/character/${props.each.id}`}>
+      <Link className="container__link" to={`/character/${props.each.id}`}>
         <img
           className="container__img"
           src={props.each.image}

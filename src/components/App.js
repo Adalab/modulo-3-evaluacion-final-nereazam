@@ -49,8 +49,17 @@ function App() {
     })
     .filter((item) => {
       return filterByGender === "all" ? true : filterByGender === item.gender;
+    })
+    .sort((item1, item2) => {
+      if (item1.name.toLocaleLowerCase() < item2.name.toLocaleLowerCase()) {
+        return -1;
+      }
+      if (item1.name.toLocaleLowerCase() > item2.name.toLocaleLowerCase()) {
+        return 1;
+      } else {
+        return 0;
+      }
     });
-
   //Funcion para avisa de campo mal introducido
   const advice = () => {
     if (filterName.length === 0) {

@@ -2,6 +2,7 @@ import FilterByName from "./FilterByName";
 import FilterByHouse from "./FilterByHouse";
 import FilterByGender from "./FilterByGender";
 import "../styles/Components/Filters.scss";
+import PropTypes from "prop-types";
 
 function Filters(props) {
   const hadleReset = (ev) => {
@@ -40,12 +41,12 @@ Filters.defaultProps = {
   filterByGender: "all",
 };
 Filters.propTypes = {
-  resetFilters: PropTypes.function.isRequired,
-  filterName: propTypes.string,
+  resetFilters: PropTypes.func,
+  filterName: PropTypes.string,
   filterHouse: PropTypes.string,
   filterByGender: PropTypes.string,
   handleFilterByGender: PropTypes.func.isRequired,
-  handleSelectHouse: PropTypes.function.isRequired,
-  handleFilterName: PropTypes.function.isRequired,
+  handleSelectHouse: PropTypes.func.isRequired,
+  handleFilterName: PropTypes.func.isRequired,
 };
 export default Filters;
