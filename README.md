@@ -2,7 +2,7 @@
 
 # Harry Potter character finder application 
 
-<span> | </span>  <a href="http://beta.adalab.es/modulo-3-evaluacion-final-nereazam/"> 
+<span> | </span>  <a href="https://nereazam.github.io/HARRY-POTTER-character-finder/"> 
  Try it! </a><span> | </span>
     
    
