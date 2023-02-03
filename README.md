@@ -31,7 +31,4 @@ Also  by clicking on the card, we obtein more details of the selected character.
 - **HTML5**
 
 
-## Contact
-
-- GitHub: [@nereazam](https://github.com/nereazam) 
 
