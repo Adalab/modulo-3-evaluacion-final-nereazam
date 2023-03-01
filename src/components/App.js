@@ -1,4 +1,5 @@
 //import logo from "../images/logo.svg";
+
 import "../styles/Components/App.scss";
 import "../styles/core/_reset.scss";
 import "../styles/core/_variables.scss";
@@ -21,6 +22,7 @@ function App() {
   );
   const [filterByGender, setFilterByGender] = useState("all");
   const [loading, setLoading] = useState(false);
+  const [filterSpecie, setFilterSpecie] = useState("");
 
   //Funcion del servidor
   useEffect(() => {
@@ -32,6 +34,7 @@ function App() {
       })
       .catch((error) => console.log(`Ha sucedido un error: ${error}`));
   }, []);
+
   // LOCAL-STORAGE
   useEffect(() => {
     ls.set("inputName", filterName);
@@ -43,6 +46,11 @@ function App() {
 
     .filter((item) => {
       return item.name.toLowerCase().includes(filterName.toLocaleLowerCase());
+    })
+    .filter((item) => {
+      return item.species
+        .toLowerCase()
+        .includes(filterSpecie.toLocaleLowerCase());
     })
     .filter((item) => {
       return item.house === filterHouse;
@@ -80,6 +88,9 @@ function App() {
   //filtro por genero
   const handleFilterByGender = (inputGender) => {
     setFilterByGender(inputGender);
+  };
+  const handleFilterSpecie = (value) => {
+    setFilterSpecie(value);
   };
 
   //obtener el id del usuario clicleado para ruta dinamica
@@ -124,6 +135,8 @@ function App() {
                     handleFilterName={handleFilterName}
                     handleSelectHouse={handleSelectHouse}
                     handleFilterByGender={handleFilterByGender}
+                    filterSpecie={filterSpecie}
+                    handleFilterSpecie={handleFilterSpecie}
                   />
                 </form>
                 <CharacterList
@@ -141,9 +154,6 @@ function App() {
           />
         </Routes>{" "}
       </main>
-      <footer className="footer">
-        <p>2022&copy; Nerea Zamanillo </p>
-      </footer>
     </div>
   );
 }

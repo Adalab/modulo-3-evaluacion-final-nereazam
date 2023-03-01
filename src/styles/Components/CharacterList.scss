@@ -6,3 +6,10 @@
         text-decoration: none;
     }
 }
+
+/* Una sola columna en dispositivos con un ancho máximo de 768px */
+@media screen and (max-width: 768px) {
+    .main__ul {
+        grid-template-columns: 100%;
+    }
+}

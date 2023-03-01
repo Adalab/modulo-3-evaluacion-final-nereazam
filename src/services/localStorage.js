@@ -11,6 +11,15 @@ const set = (key, value) => {
   const localStorageData = JSON.stringify(value);
   localStorage.setItem(key, localStorageData);
 };
+/*
+const remove = (key) => {
+  localStorage.removeItem(key);
+};
+
+const clear = () => {
+  localStorage.clear();}*/
+
+
 
 const objectToExport = {
   get: get,

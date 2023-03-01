@@ -1,6 +1,7 @@
 import FilterByName from "./FilterByName";
 import FilterByHouse from "./FilterByHouse";
 import FilterByGender from "./FilterByGender";
+import FilterBySpecie from "./FilterBySpecie";
 import "../styles/Components/Filters.scss";
 import PropTypes from "prop-types";
 
@@ -27,6 +28,12 @@ function Filters(props) {
         <FilterByGender
           filterByGender={props.filterHouse}
           handleFilterByGender={props.handleFilterByGender}
+        />
+      </fieldset>
+      <fieldset>
+        <FilterBySpecie
+          filterSpecie={props.filterSpecie}
+          handleFilterSpecie={props.handleFilterSpecie}
         />
       </fieldset>
       <button className="btn" onClick={hadleReset}>
